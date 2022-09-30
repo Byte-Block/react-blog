@@ -1,11 +1,7 @@
-.Wrapper {
-  padding: 0 1.25% 0 15%;
-  margin-bottom: 72px;
-}
-
 .Container {
   border: 1px solid;
   padding: 0px 36px;
+  margin-bottom: 8px;
   min-height: 53px;
   background-color: #cccccc;
 }
