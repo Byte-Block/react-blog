@@ -1,0 +1,54 @@
+.Wrapper {
+  border: 1px solid;
+  margin-bottom: 1%;
+}
+
+.postInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.authorInfoWrapper {
+  display: flex;
+}
+
+.avatar {
+  display: block;
+  border: 1px solid;
+  height: 80px;
+  width: 80px;
+  margin-top: 18px;
+  margin-left: 36px;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.title {
+    display: block;
+    margin: 14px 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;    
+}
+
+.text {
+  padding: 0 36px;    
+}
+
+.photoWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.blogPhoto {
+  border: 1px solid;
+  display: block;
+  height: 100px;
+  width: 100px;
+}
