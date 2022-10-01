@@ -1,0 +1,15 @@
+.BlogPostForm {
+  margin-top: 20px;
+  width: 80%;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.ButtonWrapper {
+  margin-top: 20px;
+  padding-top: 10px;
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -4,6 +4,8 @@ import ApplicationMessagesContainer from './components/ApplicationMessagesContai
 import BlogCategories from './components/BlogCategories/BlogCategories'
 import BlogPosts from './components/BlogPosts/BlogPosts'
 import Modal from './components/UI/Modal/Modal'
+import BlogPostForm from './containers/BlogPostForm/BlogPostForm'
+
 function App() {
   const [modalShow, setModalShow] = useState(false);
   const closeModal = () => {
@@ -24,7 +26,9 @@ function App() {
         <Modal
           show={modalShow}
           modalClosed={closeModal}
-        />
+        >
+          <BlogPostForm />  
+        </Modal>
       </Layout>
     </div>
   )
