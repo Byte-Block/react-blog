@@ -17,7 +17,7 @@ const Layout = props => {
     <Aux>
       <Toolbar drawerToggleClicked={sideDrawerToggleHandler} />
       <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />
-      <main className={classes.Content}>{props.children}</main>
+      <main className={classes.Content} style={{ backgroundColor: '#535353' }}>{props.children}</main>
     </Aux>
   )
 }
