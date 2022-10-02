@@ -102,7 +102,7 @@ const BlogPostForm = props => {
     setBlogForm(updatedControls)
   }
 
-  const submitNewBlogPost = event => {
+  const submitNewOrEditExistingBlogPost = event => {
     event.preventDefault()
     if (!props.isBeingEdited) {
       const blogPostBody = {
@@ -146,7 +146,7 @@ const BlogPostForm = props => {
           console.log('response from editing an existing blog post: ', response)
           let updatedControls = blogForm
           for (let key in blogForm) {
-            console.log('key after posting', key)
+            console.log('key after editing', key)
             updatedControls = updateObject(updatedControls, {
               [key]: updateObject(updatedControls[key], {
                 value: '',
@@ -160,10 +160,14 @@ const BlogPostForm = props => {
           props.getAndSetAllBlogPosts()
           props.modalToggled()
         })
+        .catch(error => {
+          console.error('error from editing an existing blog post: ', error)
+          message('Post failed to edit')
+        })
     }
   }
 
-  const cancelAddNewBlogPost = event => {
+  const cancelBlogPost = event => {
     event.preventDefault()
     let updatedControls = blogForm
     for (let key in blogForm) {
@@ -209,8 +213,8 @@ const BlogPostForm = props => {
       <form>
         {form}
         <div className={classes.ButtonWrapper}>
-          <button onClick={event => submitNewBlogPost(event)}>Post</button>
-          <button onClick={event => cancelAddNewBlogPost(event)}>Cancel</button>
+          <button onClick={event => submitNewOrEditExistingBlogPost(event)}>Post</button>
+          <button onClick={event => cancelBlogPost(event)}>Cancel</button>
         </div>
       </form>
     </div>

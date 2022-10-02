@@ -13,7 +13,7 @@ const blogPost = props => (
       </div>
       <div className={classes.controls}>
         <button onClick={() => props.onEditClick(props.id)}>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => props.onDeleteClick(props.id)}>Delete</button>
       </div>
     </div>
     <p className={classes.text}>

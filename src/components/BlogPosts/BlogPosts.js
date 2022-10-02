@@ -2,11 +2,17 @@ import { useEffect, useState } from 'react'
 import uuid from 'react-uuid'
 
 import classes from './BlogPosts.module.css'
+
 import BlogPost from './BlogPost/BlogPost'
 import Modal from '../UI/Modal/Modal'
 import BlogPostForm from '../../containers/BlogPostForm/BlogPostForm'
 
+import axios from '../../axios-nul-tien-blog-swagger'
+import { useApplicationMessage } from '../../hooks/useApplicationMessage'
+
 const BlogPosts = props => {
+  const message = useApplicationMessage(4000)
+
   const [modalShow, setModalShow] = useState(false)
   const [singleBlogPost, setSingleBlogPost] = useState(null)
   console.log('singleBlogPost after useState: ',singleBlogPost)
@@ -25,6 +31,18 @@ const BlogPosts = props => {
     toggleModal()
   }
 
+  const deleteSingleBlogPost = (postId) => {
+    axios.delete(`/api/BlogPosts/${postId}`).then(response => {
+      console.log('response from deleting an existing blog post: ', response)
+      message('Post deleted successfully')
+      props.getAndSetAllBlogPosts()
+    })
+    .catch(error => {
+      console.error('error from deleting an existing blog post: ', error)
+      message('Post failed to delete')
+    })
+  }
+
   // useEffect(() => {
 
   // },[singleBlogPost])
@@ -41,6 +59,7 @@ const BlogPosts = props => {
             postText={individualPost.text}
             postCategoryId={individualPost.Id}
             onEditClick={selectSinglePostForEditing}
+            onDeleteClick={deleteSingleBlogPost}
           />
         ))}
       <Modal show={modalShow} modalClosed={toggleModal}>
