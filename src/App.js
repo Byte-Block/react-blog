@@ -7,10 +7,10 @@ import Modal from './components/UI/Modal/Modal'
 import BlogPostForm from './containers/BlogPostForm/BlogPostForm'
 
 function App() {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalShow, setModalShow] = useState(false)
   const closeModal = () => {
-    setModalShow(false);
-  };
+    setModalShow(false)
+  }
   return (
     <div>
       <Layout>
@@ -19,15 +19,22 @@ function App() {
           Welcome to My Blog
         </h2>
         <ApplicationMessagesContainer />
+        <div
+          style={{
+            height: '55px',
+            display: 'flex',
+            flexDirection: 'row-reverse',
+            marginRight: '1%',
+          }}
+        >
+          <button style={{ marginBottom: '36px' }} onClick={() => setModalShow(!modalShow)}>Add post</button>
+        </div>
         <div style={{ display: 'flex' }}>
           <BlogCategories />
           <BlogPosts />
         </div>
-        <Modal
-          show={modalShow}
-          modalClosed={closeModal}
-        >
-          <BlogPostForm />  
+        <Modal show={modalShow} modalClosed={closeModal}>
+          <BlogPostForm modalClosed={closeModal} />
         </Modal>
       </Layout>
     </div>

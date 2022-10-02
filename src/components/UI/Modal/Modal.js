@@ -24,7 +24,7 @@ const modal = props => {
           <div className={classes.HeaderIcons}>
             <VscChromeMinimize />
             <VscChromeMaximize />
-            <VscChromeClose />
+            <VscChromeClose onClick={props.modalClosed}/>
           </div>
         </header>
         <div className={classes.ContentBody}>{props.children}</div>

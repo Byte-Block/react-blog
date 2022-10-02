@@ -1,12 +1,17 @@
-import { useState } from 'react' 
+import { useState } from 'react'
 
 import classes from './BlogPostForm.module.css'
 
 import Input from '../../components/UI/Input/Input'
 
 import { updateObject, checkValidity } from '../../shared/utility'
+import axios from '../../axios-nul-tien-blog-swagger'
+import { useApplicationMessage } from '../../hooks/useApplicationMessage'
 
-const BlogPostForm = () => {
+const BlogPostForm = props => {
+  console.log('BlogPostForm render')
+  const message = useApplicationMessage(4000)
+
   const [blogForm, setBlogForm] = useState({
     blogTitle: {
       elementType: 'input',
@@ -42,14 +47,51 @@ const BlogPostForm = () => {
 
   const inputChangedHandler = (event, controlName) => {
     const updatedControls = updateObject(blogForm, {
-      [controlName]: updateObject(blogForm[controlName],{
+      [controlName]: updateObject(blogForm[controlName], {
         value: event.target.value,
-        valid: checkValidity(event.target.value, blogForm[controlName].validation),
+        valid: checkValidity(
+          event.target.value,
+          blogForm[controlName].validation
+        ),
         touched: true
       })
     })
 
     setBlogForm(updatedControls)
+  }
+
+  const submitNewBlogPost = event => {
+    event.preventDefault()
+    const blogPostBody = {
+      title: blogForm.blogTitle.value,
+      text: blogForm.blogText.value,
+      categoryId: Math.floor(Math.random() * (3 - 1 + 1) + 1)
+    }
+    axios.post('/api/BlogPosts', blogPostBody).then(response => {
+      console.log('response from posting a new blog post: ', response)
+      let updatedControls = blogForm
+      for (let key in blogForm) {
+        console.log('key after posting', key)
+        updatedControls = updateObject(updatedControls, {
+          [key]: updateObject(updatedControls[key], {
+            value: '',
+            valid: false,
+            touched: false
+          })
+        })
+      }
+      setBlogForm(updatedControls)
+      message('Post submitted successfully')
+      props.modalClosed()
+    }).catch(error => {
+        console.error('error from posting a new blog post: ', error)
+        message('Post failed to submit')
+    })
+  }
+
+  const cancelAddNewBlogPost = event => {
+    event.preventDefault()
+    props.modalClosed()
   }
 
   let formElementsArray = []
@@ -59,7 +101,7 @@ const BlogPostForm = () => {
       config: blogForm[key],
       valueType: key,
       labelName: blogForm[key].labelName
-    });
+    })
   }
 
   let form = formElementsArray.map(formElement => (
@@ -72,7 +114,7 @@ const BlogPostForm = () => {
       invalid={!formElement.config.valid}
       shouldValidate={formElement.config.validation}
       touched={formElement.config.touched}
-      changed={(event) => inputChangedHandler(event, formElement.id)}
+      changed={event => inputChangedHandler(event, formElement.id)}
     />
   ))
 
@@ -81,8 +123,8 @@ const BlogPostForm = () => {
       <form>
         {form}
         <div className={classes.ButtonWrapper}>
-            <button>Post</button>
-            <button>Cancel</button>
+          <button onClick={event => submitNewBlogPost(event)}>Post</button>
+          <button onClick={event => cancelAddNewBlogPost(event)}>Cancel</button>
         </div>
       </form>
     </div>
