@@ -5,25 +5,19 @@ const blogPost = props => (
       <div className={classes.authorInfoWrapper}>
         <img className={classes.avatar} alt="author avatar"></img>
         <section className={classes.authorInfo}>
-          <span className={classes.title}><strong>Blog Post</strong></span>
+          <span className={classes.title}><strong>{props.postTitle}</strong></span>
           <span style={{ fontSize: '12px'}}>
             Posted date: <time>12.12.2022. at 12:00 </time> by Some Person
           </span>
         </section>
       </div>
       <div className={classes.controls}>
-        <button>Edit</button>
+        <button onClick={() => props.onEditClick(props.id)}>Edit</button>
         <button>Delete</button>
       </div>
     </div>
     <p className={classes.text}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec
-      malesuada lorem. Maecenas id sollicitudin elit. Aliquam tempus, nulla
-      rutrum sagittis pretium, justo sem imperdiet ex, vel aliquam neque felis
-      ut neque. Donec pulvinar mi eget egestas rhoncus. Curabitur purus nunc,
-      ullamcorper eget sagittis sit amet, lobortis nec purus. Etiam sit amet
-      lobortis massa, ut varius lectus. Cras tempus purus in magna iaculis
-      ornare.
+      {props.postText}
     </p>
     <div className={classes.photoWrapper}>
       <figure>
