@@ -1,4 +1,3 @@
-// import Aux from '../../hoc/Auxiliary/Auxiliary'
 import classes from './ApplicationMessage.module.css'
 
 import { VscChromeClose } from 'react-icons/vsc'

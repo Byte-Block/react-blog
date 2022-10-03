@@ -12,14 +12,12 @@ import BlogPostForm from '../BlogPostForm/BlogPostForm'
 import axios from '../../axios-nul-tien-blog-swagger'
 
 const MainBLogView = props => {
-  console.log('MainBLogView render')
   const [modalShow, setModalShow] = useState(false)
   const [allBlogPosts, setAllBlogPosts] = useState([])
 
   useEffect(() => {
     const getAllBlogPosts = async () => {
       const resultData = await axios.get('/api/BlogPosts').then(response => {
-        console.log(response)
         return response.data.resultData
       })
       
@@ -30,10 +28,8 @@ const MainBLogView = props => {
       const resultData = await axios
         .get(`/api/BlogPosts/Search?term=${props.termToBeSearched}`)
         .then(response => {
-          console.log(response)
           return response.data.resultData
         })
-    //   props.resetSearch()
       setAllBlogPosts([...resultData])
     }
 
@@ -52,7 +48,7 @@ const MainBLogView = props => {
     axios
       .get('/api/BlogPosts')
       .then(response => {
-        console.log(response)
+        console.log('response from getAndSetAllBlogPosts: ',response)
         setAllBlogPosts([...response.data.resultData])
       })
       .catch(error => console.error(error))
@@ -62,7 +58,7 @@ const MainBLogView = props => {
     axios
       .get(`/api/BlogPosts/GetPostByCategory?categoryId=${category}`)
       .then(response => {
-        console.log(response)
+        console.log('response from getAndSetBlogPostsByCategory: ', response)
         setAllBlogPosts([...response.data.resultData])
       })
       .catch(error => console.error(error))
@@ -109,10 +105,6 @@ const MainBLogView = props => {
             }
           />
         </Routes>
-        {/* <BlogPosts
-          postList={allBlogPosts}
-          getAndSetAllBlogPosts={getAndSetAllBlogPosts}
-        /> */}
       </div>
       <Modal show={modalShow} modalClosed={toggleModal}>
         <BlogPostForm

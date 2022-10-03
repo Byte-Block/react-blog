@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import classes from './BlogPostForm.module.css'
 
@@ -9,8 +9,6 @@ import axios from '../../axios-nul-tien-blog-swagger'
 import { useApplicationMessage } from '../../hooks/useApplicationMessage'
 
 const BlogPostForm = props => {
-  console.log('BlogPostForm render')
-  console.log('BlogPostForm props', props)
   const message = useApplicationMessage(4000)
 
   let titleEditValue
@@ -23,8 +21,6 @@ const BlogPostForm = props => {
     titleEditValue = ''
     textEditValue = ''
   }
-
-  console.log(titleEditValue, textEditValue)
 
   const [blogForm, setBlogForm] = useState({
     blogTitle: {
@@ -59,34 +55,6 @@ const BlogPostForm = props => {
     }
   })
 
-  console.log('checking state', blogForm)
-  useEffect(() => {})
-  // useEffect(() => {
-  //   const getSingleBlogPosts = async () => {
-  //     const resultData = await axios.get(`/api/BlogPosts/${props.blogPostInfo !== undefined && props.blogPostInfo[0] !== undefined ? props.blogPostInfo[0].id : ''}`).then(response => {
-  //       console.log(response)
-  //       return response.data.resultData
-  //     })
-
-  //     setBlogForm(prevState => { return {
-  //       ...prevState,
-  //       blogTitle: { ...prevState.blogTitle, value: titleEditValue },
-  //       blogText: { ...prevState.blogText, value: textEditValue }
-  //     }})
-  //   }
-  //   getSingleBlogPosts()
-  // }, [blogForm])
-
-  // if (titleEditValue !== '' && textEditValue !== '') {
-  //   setBlogForm(prevState => {
-  //     return {
-  //       ...prevState,
-  //       blogTitle: { ...prevState.blogTitle, value: titleEditValue },
-  //       blogText: { ...prevState.blogText, value: textEditValue }
-  //     }
-  //   })
-  // }
-
   const inputChangedHandler = (event, controlName) => {
     const updatedControls = updateObject(blogForm, {
       [controlName]: updateObject(blogForm[controlName], {
@@ -115,7 +83,6 @@ const BlogPostForm = props => {
           console.log('response from posting a new blog post: ', response)
           let updatedControls = blogForm
           for (let key in blogForm) {
-            console.log('key after posting', key)
             updatedControls = updateObject(updatedControls, {
               [key]: updateObject(updatedControls[key], {
                 value: '',
@@ -146,7 +113,6 @@ const BlogPostForm = props => {
           console.log('response from editing an existing blog post: ', response)
           let updatedControls = blogForm
           for (let key in blogForm) {
-            console.log('key after editing', key)
             updatedControls = updateObject(updatedControls, {
               [key]: updateObject(updatedControls[key], {
                 value: '',
@@ -171,7 +137,6 @@ const BlogPostForm = props => {
     event.preventDefault()
     let updatedControls = blogForm
     for (let key in blogForm) {
-      console.log('key after posting', key)
       updatedControls = updateObject(updatedControls, {
         [key]: updateObject(updatedControls[key], {
           value: '',

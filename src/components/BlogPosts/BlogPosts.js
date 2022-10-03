@@ -15,18 +15,13 @@ const BlogPosts = props => {
 
   const [modalShow, setModalShow] = useState(false)
   const [singleBlogPost, setSingleBlogPost] = useState(null)
-  console.log('singleBlogPost after useState: ',singleBlogPost)
 
   const toggleModal = () => {
     setModalShow(!modalShow)
-    // if (modalShow === false) {
-    //   setSingleBlogPost(null)
-    // }
   }
 
   const selectSinglePostForEditing = (postId) => {
     const singlePostToBeEdited = props.postList.filter(post => post.id === postId)
-    console.log('singlePostToBeEdited', singlePostToBeEdited[0])
     setSingleBlogPost(singlePostToBeEdited[0])
     toggleModal()
   }
@@ -42,10 +37,6 @@ const BlogPosts = props => {
       message('Post failed to delete')
     })
   }
-
-  // useEffect(() => {
-
-  // },[singleBlogPost])
 
   return (
     <div className={classes.Wrapper}>
