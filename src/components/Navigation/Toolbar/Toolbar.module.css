@@ -49,4 +49,8 @@
   .DesktopOnly {
     margin-left: auto;
   }
+
+  .NavigationItemsHeader {
+    display: none;
+  }
 }

@@ -22,7 +22,9 @@ const toolbar = props => (
           onKeyDown={(event) => props.onKeyPressEnter(event)}
         />
       </div>
-      <NavigationItems />
+      <div className={classes.NavigationItemsHeader}>
+        <NavigationItems />
+      </div>
     </nav>
     <DrawerToggle clicked={props.drawerToggleClicked} />
   </header>
