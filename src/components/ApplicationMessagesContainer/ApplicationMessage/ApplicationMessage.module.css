@@ -4,4 +4,11 @@
   margin-bottom: 8px;
   min-height: 53px;
   background-color: #cccccc;
+  position: relative;
+}
+
+.Close {
+  position: absolute;
+  top: 4px;
+  right: 12px;
 }

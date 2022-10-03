@@ -213,8 +213,8 @@ const BlogPostForm = props => {
       <form>
         {form}
         <div className={classes.ButtonWrapper}>
-          <button onClick={event => submitNewOrEditExistingBlogPost(event)}>Post</button>
-          <button onClick={event => cancelBlogPost(event)}>Cancel</button>
+          <button className={classes.Button} onClick={event => submitNewOrEditExistingBlogPost(event)}>Post</button>
+          <button className={classes.Button} onClick={event => cancelBlogPost(event)}>Cancel</button>
         </div>
       </form>
     </div>

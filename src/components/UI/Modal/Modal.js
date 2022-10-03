@@ -22,9 +22,9 @@ const modal = props => {
         <header className={classes.Header}>
           <span>Add/Edit blog post</span>{' '}
           <div className={classes.HeaderIcons}>
-            <VscChromeMinimize />
-            <VscChromeMaximize />
-            <VscChromeClose onClick={props.modalClosed}/>
+            <VscChromeMinimize className={classes.SVG}/>
+            <VscChromeMaximize className={classes.SVG}/>
+            <VscChromeClose className={classes.SVG} onClick={props.modalClosed}/>
           </div>
         </header>
         <div className={classes.ContentBody}>{props.children}</div>

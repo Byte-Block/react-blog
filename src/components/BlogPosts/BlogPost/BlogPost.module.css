@@ -37,6 +37,18 @@
   align-items: center;    
 }
 
+.button {
+  background-color: #000000;
+  padding: 10px 20px;
+  color: #ffffff;
+  display: inline-block;
+  border: 1px solid transparent;
+  box-sizing: content-box;
+  margin-right: 18px;
+  line-height: 2px;
+  border-radius: 2px;
+}
+
 .text {
   padding: 0 36px;    
 }

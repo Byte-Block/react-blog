@@ -17,9 +17,28 @@
   height: 100%;
 }
 
+.Input {
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.SearchBar {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
 .Logo {
   color: white;
   border-bottom: 4px solid transparent;
+  text-decoration: none;
 }
 
 @media (max-width: 499px) {

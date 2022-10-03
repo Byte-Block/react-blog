@@ -7,7 +7,6 @@ const ApplicationMessagesContainer = props => {
 
   return (
     <div className={classes.Container}>
-      <ApplicationMessage />
       {messages &&
         messages.map(message => (
           <ApplicationMessage

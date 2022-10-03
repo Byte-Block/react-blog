@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom' 
+
 import classes from './SideDrawer.module.css'
 
 import Aux from '../../../hoc/Auxiliary/Auxiliary'
@@ -14,7 +16,7 @@ const sideDrawer = props => {
     <Aux>
       <Backdrop show={props.open} clicked={props.closed} />
       <div className={attachedClasses.join(' ')}>
-        <div className={classes.Logo}>My Blog</div>
+      <NavLink onClick={props.closed} to="/" exact="true" className={classes.Logo}>My Blog</NavLink>
         <nav onClick={props.closed}>
           <NavigationItems />
         </nav>

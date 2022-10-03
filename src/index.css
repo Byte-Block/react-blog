@@ -11,11 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-article:last-child {
-  margin-bottom: 0%;
-}
-
-article:nth-last-child(1) {
-  margin-bottom: 0%;
-}
