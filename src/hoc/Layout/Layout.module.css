@@ -1,3 +1,10 @@
 .Content {
   margin-top: 56px;
+  min-width: 753px;
+}
+
+@media (max-width: 689px) {
+  .Content {
+    min-width: 633px;
+  }
 }

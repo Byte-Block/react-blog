@@ -10,17 +10,18 @@ const toolbar = props => (
     <NavLink to="/" exact="true" className={classes.Logo}>
       My Blog
     </NavLink>
-    <div className={classes.Input}>
-      <input
-        className={classes.SearchBar}
-        {...props.elementConfig}
-        value={props.value}
-        placeholder={'Search'}
-        onChange={props.changed}
-        onKeyDown={(event) => props.onKeyPressEnter(event)}
-      />
-    </div>
+    
     <nav className={classes.DesktopOnly}>
+      <div className={classes.Input}>
+        <input
+          className={classes.SearchBar}
+          {...props.elementConfig}
+          value={props.value}
+          placeholder={'Search'}
+          onChange={props.changed}
+          onKeyDown={(event) => props.onKeyPressEnter(event)}
+        />
+      </div>
       <NavigationItems />
     </nav>
     <DrawerToggle clicked={props.drawerToggleClicked} />

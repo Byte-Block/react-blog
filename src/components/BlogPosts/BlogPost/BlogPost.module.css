@@ -1,6 +1,7 @@
 .Wrapper {
   border: 1px solid;
   margin-bottom: 20px;
+  min-width: 600px;
 }
 
 .postInfoWrapper {
@@ -56,6 +57,10 @@
 .photoWrapper {
   display: flex;
   justify-content: center;
+}
+
+figure {
+  margin: 8px 4px;
 }
 
 .blogPhoto {

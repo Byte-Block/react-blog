@@ -1,16 +1,42 @@
 .Wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 16%;
+  border: 1px solid;
+  background-color: #ffffff;
+  margin: 0 1% 20px 1%;
+}
+
+.CategoriesWrapper {
     display: flex;
     flex-direction: column;
-    width: 16%;
-    border: 1px solid;
-    background-color: #ffffff;
-    margin: 0 1% 20px 1%;
 }
 
 h3 {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 a {
-    padding-left: 20px;
+  padding-left: 20px;
+}
+
+@media (max-width: 689px) {
+  .Wrapper {
+    width: 95%;
+    min-width: 600px;
+    margin: 0 2.5% 20px 2.5%;
+    box-sizing: border-box;
+  }
+
+  .TitleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5%;
+  }
+
+  .CategoriesWrapper {
+    flex-direction: row;
+    margin-bottom: 18px;
+  }
 }

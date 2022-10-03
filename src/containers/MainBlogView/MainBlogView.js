@@ -71,12 +71,7 @@ const MainBLogView = props => {
   return (
     <Aux>
       <div
-        style={{
-          height: '55px',
-          display: 'flex',
-          flexDirection: 'row-reverse',
-          marginRight: '1%'
-        }}
+        className={classes.ButtonWrapper}
       >
         <button
           className={classes.Button}
@@ -93,7 +88,7 @@ const MainBLogView = props => {
           Get all posts
         </button>
       </div>
-      <div style={{ display: 'flex' }}>
+      <div className={classes.MainContentWrapper}>
         <Routes>
           <Route path="/link1" exact element={<h1>Link1 Page!</h1>} />
           <Route path="/link2" exact element={<h1>Link2 Page!</h1>} />

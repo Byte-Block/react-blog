@@ -1,10 +1,33 @@
+.ButtonWrapper {
+  height: 55px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 1%;
+}
+
 .Button {
-    background-color: #000000;
-    padding: 10px 30px;
-    color: #ffffff;
-    display: inline-block;
-    border: 1px solid transparent;
-    box-sizing: content-box;
-    line-height: 2px;
-    border-radius: 2px;
+  background-color: #000000;
+  padding: 10px 30px;
+  color: #ffffff;
+  display: inline-block;
+  border: 1px solid transparent;
+  box-sizing: content-box;
+  line-height: 2px;
+  border-radius: 2px;
+}
+
+.MainContentWrapper {
+  display: flex;
+}
+
+@media (max-width: 689px) {
+  .MainContentWrapper {
+    flex-direction: column;
+  }
+
+  .ButtonWrapper {
+    margin-right: 2.5%;
+    width: 97.5%;
+    min-width: 600px;
+  }
 }

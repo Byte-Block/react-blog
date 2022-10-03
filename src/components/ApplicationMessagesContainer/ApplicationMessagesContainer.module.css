@@ -1,5 +1,10 @@
 .Container {
-    padding: 0 1% 0 19%;
-    min-height: 55px;
-    margin-bottom: 72px;
+  margin: 0 1% 0 19%;
+  min-height: 55px;
+}
+
+@media (max-width: 689px) {
+  .Container {
+    margin: 0 2.5%;
   }
+}

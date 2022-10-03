@@ -66,7 +66,7 @@ function App() {
     <div>
       <Layout onKeyPressEnter={onKeyPressEnter}>
         {/* <button onClick={() => setModalShow(!modalShow)}>SHOW MODAL</button> */}
-        <h2 style={{ paddingTop: '0.83em', paddingLeft: '19%' }}>
+        <h2>
           Welcome to My Blog
         </h2>
         <ApplicationMessagesContainer />
